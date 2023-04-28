@@ -32,11 +32,13 @@ function App() {
             setUsername(event.target.value)
           }}
         ></input>
+        {/* using shorthand notation for the dispatch */}
         <button onClick={() => {
           dispatch(addUser({
-            id: Math.floor(Math.random() * 1000),
-            name: name,
-            username: username
+            // allows us to get the last id in the array and add 1 to it
+            id: userList[userList.length - 1].id + 1,
+            name,
+            username
           }))
         }}>Add User</button>
 
@@ -51,7 +53,7 @@ function App() {
           );
         })}
       </div>
-    </div>
+    </div >
   );
 }
 
