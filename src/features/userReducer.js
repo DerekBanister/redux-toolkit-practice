@@ -1,7 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { data } from '../data.json'
+import { data } from '../data.js'
+
+
 export const userSlice = createSlice({
     name: "users",
+    // Can access value of state by using useSelector 
+    // with this key value pair
     initialState: { value: data },
     reducers: {
         addUser: (state, action) => {
@@ -9,3 +13,5 @@ export const userSlice = createSlice({
         }
     }
 })
+
+export default userSlice.reducer;
