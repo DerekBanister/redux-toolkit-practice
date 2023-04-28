@@ -1,6 +1,6 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addUser } from './features/userReducer';
+import { addUser, deleteUser } from './features/userReducer';
 import { useState } from 'react';
 
 function App() {
@@ -41,6 +41,18 @@ function App() {
             <div className="user" key={user.id}>
               <h3>{user.name}</h3>
               <h3>{user.username}</h3>
+              <input
+                type="text"
+                placeholder='New Username...'
+                value={username}
+                onChange={(event) => {
+                  //setUsername(event.target.value)
+                }}
+              />
+              <button>Update Username</button>
+              <button onClick={() => {
+                dispatch(deleteUser(user.id));
+              }}>Delete User</button>
             </div>
           );
         })}
